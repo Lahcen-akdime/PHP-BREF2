@@ -1,6 +1,6 @@
 <?php
 require_once "console.php" ;
-class club{
+class Club{
 public function create(){
 
 }

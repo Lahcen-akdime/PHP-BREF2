@@ -1,5 +1,5 @@
 <?php
-class connect{
+class Connect{
      public $dbname = "gigaleague";
      public $password = "";
      public $host = "localhost";
@@ -8,8 +8,5 @@ class connect{
        return  mysqli_connect($this ->host,$this ->username,$this ->password,$this ->dbname,3307);
      }
 }
-$myobject = new connect ;
+$myobject = new Connect ;
 $connection = $myobject ->  connect() ;
-$insertion = "INSERT INTO club(name,ville)VALUES('unit','rabat');";
-$resault = $connection -> query($insertion) ;
-var_dump($resault);
