@@ -1,6 +1,7 @@
 <?php
 require_once "console.php" ;
-for ($i = 0 ; $i<1 ; $i++) {
+require_once "config.php";
+while (true) {
     echo "\n";
     echo "==== USER CRUD GIGALE ==== \n";
     echo "1. Gestion des clubs \n" ;
@@ -32,7 +33,6 @@ for ($i = 0 ; $i<1 ; $i++) {
             case '6':
     include "sponsors.php";
             break;
-
         default:
             break;
     }
