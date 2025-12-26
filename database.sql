@@ -63,3 +63,6 @@ CREATE TABLE sponsors (
     date datetime DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (tournoi_id) REFERENCES tournoi(id) 
 )
+
+__________________________________________
+Joueur tournoi sponsors 

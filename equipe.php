@@ -35,6 +35,11 @@ $operation = "UPDATE equipe SET nom = '$name' , Jeu = '$game'";
 $this-> connection -> query($operation);
         return "\n\n _______ La modification a bien fait _____\n\n";
 }
+public function updateclub($name , $newid){
+$operation = "UPDATE equipe SET clubid = '$newid' WHERE nom = '$name'";
+$this-> connection -> query($operation);
+        return "\n\n _______ La modification a bien fait _____\n\n";
+}
 public function read(){
  $operation = "SELECT * FROM equipe ORDER BY clubid";
          $resault = $this-> connection -> query($operation);
@@ -92,8 +97,8 @@ echo "\n==== GESTION DES EQUIPES ==== \n";
                 echo $new_equipe->update($name,$game) ;
                 }
                 elseif($choise == 2){
-                    $name = $console->input("Tapez le id de neuveau club ");
-
+                   $newid = $console->input("Tapez le id de neuveau club ");
+                    echo $new_equipe -> updateclub($name , $newid) ;
                 }
             }
             break;
