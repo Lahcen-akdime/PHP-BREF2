@@ -1,10 +1,16 @@
 <?php
 require_once "console.php" ;
-class Joueur{
-public function create(){
+class Joueur implements gestion{
+    public object $connection ;
+    public string $Userid ;
+    public function __construct($connect)
+    {
+        $this -> connection = $connect ;
+    }
+public function create($a,$b){
 
 }
-public function update(){
+public function update($a,$b){
 
 }
 public function read(){

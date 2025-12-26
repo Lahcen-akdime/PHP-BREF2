@@ -1,6 +1,6 @@
 <?php
 require_once "config.php";
-class club
+class club implements gestion
 {
     public object $connection ;
     public string $Userid ;
@@ -17,7 +17,7 @@ class club
          $operation = "UPDATE club  
          SET name = '$nouvellename' , ville = '$nouvelleville' WHERE id = '$this->Userid'";
         $this-> connection -> query($operation);
-         return "L'operation ";
+         return "\n\nL'operation bien fait\n\n";
     }
     public function read() {
         $operation = "SELECT * FROM club ";
@@ -51,6 +51,17 @@ class club
             return "\n\n _______ Le club pas trouvée !!!!! _____\n\n";
          }
     }
+    public function Allteams(){
+        $operation = "SELECT club.name as cm , COUNT(equipe.id) as equipes
+                        FROM club LEFT JOIN equipe 
+                         ON  club.id = equipe.clubid
+                         GROUP BY club.name";
+                         $resault = $this-> connection -> query($operation);
+             $stmt = $resault -> fetch_all(MYSQLI_ASSOC);
+         foreach ($stmt as $element) {
+            echo "\n\n $element[cm] ______ $element[equipes]\n";
+         }
+    }
 }
 $test = false;
     $new_club = new club($connection) ;
@@ -60,6 +71,7 @@ while (!$test) {
     echo "2. EDIT A CLUB \n";
     echo "3. REMOVE A CLUB \n";
     echo "4. READ ALL CLUBS \n";
+    echo "5. THE NUMBER OF TEAMS IN ALL CLUBS \n";
     echo "0. Exit \n";
     $choix = $console->input("Entrer votre choix");
     switch ($choix) {
@@ -88,6 +100,9 @@ while (!$test) {
             break;
         case '4':
             echo $new_club->read() ;
+            break;
+             case '5':
+            echo $new_club->Allteams() ;
             break;
         case '0':
             $test = true;

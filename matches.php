@@ -1,6 +1,12 @@
 <?php
 require_once "console.php" ;
 class club{
+    public object $connection ;
+    public string $Userid ;
+    public function __construct($connect)
+    {
+        $this -> connection = $connect ;
+    }
 public function create(){
 
 }

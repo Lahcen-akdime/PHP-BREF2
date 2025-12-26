@@ -1,6 +1,12 @@
 <?php
 require_once "console.php" ;
 require_once "config.php";
+interface gestion{
+public function create($a,$b);
+public function update($a,$b);
+public function read();
+public function delete();
+}
 while (true) {
     echo "\n";
     echo "==== USER CRUD GIGALE ==== \n";
